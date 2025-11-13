@@ -10,8 +10,8 @@ public class LoginPage {
 	// 1. By Locators: OR(object repository)
 	private By Username = By.name("username");
 	private By Password = By.name("password");
-	private By LoginButton = By.className("btn btn-small");
-//	private By forgotPwdLink = By.linkText("Forgot your password?111");
+	private By LoginButton = By.xpath("//button[@type='submit']");
+	private By forgotPwdLink = By.xpath("//p[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']");
 
 	// 2. Constructor of the page class:
 	public LoginPage(WebDriver driver) {
@@ -24,9 +24,10 @@ public class LoginPage {
 		return driver.getTitle();
 	}
 
-//	public boolean isForgotPwdLinkExist() {
-//		return driver.findElement(forgotPwdLink).isDisplayed();
-//	}
+	public boolean isForgotPwdLinkExist() {
+		return driver.findElement(forgotPwdLink).isDisplayed();
+		
+	}
 
 	public void enterUserName(String username) {
 		driver.findElement(Username).sendKeys(username);
@@ -38,5 +39,15 @@ public class LoginPage {
 
 	public void clickOnLogin() {
 		driver.findElement(LoginButton).click();
+	}
+	
+	public AdminPage doLogin(String usn, String pwd) {
+		System.out.println("Login with: " + usn + " and " + pwd);
+		driver.findElement(Username).sendKeys(usn);
+		driver.findElement(Password).sendKeys(pwd);
+		driver.findElement(LoginButton).click();
+		return new AdminPage(driver);
+		
+		
 	}
 }

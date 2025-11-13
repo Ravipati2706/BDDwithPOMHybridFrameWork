@@ -1,5 +1,7 @@
 package com.qa.factory;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,12 +17,14 @@ public class DriverFactory {
 
 	/**
 	 * This method is used to initialize the thradlocal driver on the basis of given
-	 * browser
+	 * browser why we used thread local concept means if we want excute in parllel
+	 * mode we have to use thred local
 	 * 
 	 * @param browser
 	 * @return this will return tldriver.
+	 * @throws InterruptedException
 	 */
-	public WebDriver init_driver(String browser) {
+	public WebDriver init_driver(String browser) throws InterruptedException {
 
 		System.out.println("browser value is: " + browser);
 
@@ -36,6 +40,8 @@ public class DriverFactory {
 			System.out.println("Please pass the correct browser value: " + browser);
 		}
 
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
 		return getDriver();

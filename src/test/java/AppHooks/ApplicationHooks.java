@@ -27,16 +27,19 @@ public class ApplicationHooks {
 	}
 
 	@Before(order = 1)
-	public void launchBrowser() {
+	public void launchBrowser() throws InterruptedException {
 		String browserName = prop.getProperty("browser");
 		driverFactory = new DriverFactory();
 		driver = driverFactory.init_driver(browserName);
-		
+
 	}
 
 	@After(order = 0)
 	public void quitBrowser() {
-		driver.quit();
+		if (driver != null) {
+			driver.quit();
+		}
+
 	}
 
 	@After(order = 1)
@@ -49,5 +52,5 @@ public class ApplicationHooks {
 
 		}
 	}
-	
+
 }
