@@ -1,5 +1,4 @@
 package com.qa.factory;
-
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -39,11 +38,9 @@ public class DriverFactory {
 		} else {
 			System.out.println("Please pass the correct browser value: " + browser);
 		}
-
-		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-		getDriver().manage().deleteAllCookies();
-		getDriver().manage().window().maximize();
+		  getDriver().manage().deleteAllCookies();
+		  getDriver().manage().window().maximize();
+		 
 		return getDriver();
 
 	}

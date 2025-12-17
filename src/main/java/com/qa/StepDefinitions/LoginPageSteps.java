@@ -15,6 +15,7 @@ public class LoginPageSteps {
 	@Given("user is on login page")
 	public void user_is_on_login_page() {
 		DriverFactory.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		
 	}
 
 	@When("user gets the title of the page")
@@ -23,7 +24,7 @@ public class LoginPageSteps {
 		System.out.println("Login page title is: " + title);
 	}
 
-	@Then("page Title should be {string}")
+	@Then("page title should be {string}")
 	public void page_title_should_be(String expectedTitleName) {
 		Assert.assertTrue(title.contains(expectedTitleName));
 

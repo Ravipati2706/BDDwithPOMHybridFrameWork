@@ -17,7 +17,7 @@ public class ConfigReader {
 
 		prop = new Properties();
 		try {
-			FileInputStream ip = new FileInputStream("C:\\Users\\bravindra\\git\\BDDwithPOMHybridFrameWork\\src\\test\\resources\\config\\Config.properties");
+			FileInputStream ip = new FileInputStream("C:\\Users\\DELL\\git\\BDDwithPOMHybridFrameWork\\src\\test\\resources\\config\\Config.properties");
 			prop.load(ip);
 
 		} catch (FileNotFoundException e) {
