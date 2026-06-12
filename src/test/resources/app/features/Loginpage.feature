@@ -14,4 +14,3 @@ Feature: Login page feature
     When user enters username "Admin"
     And user enters password "admin123"
     And user clicks on Login button
-   

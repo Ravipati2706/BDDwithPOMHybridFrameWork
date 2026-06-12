@@ -6,14 +6,14 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = { "src/test/resources/app/features/Loginpage.feature" }, glue = { "com.qa.StepDefinitions",
-		"AppHooks" }, plugin = { "pretty", 
-//				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", 
-//				"timeline:test-output-thread/"
-				
-}
-
+@CucumberOptions(
+    features = "src/test/resources/app/features",
+    glue = {"com.qa.StepDefinitions", "AppHooks"},
+    plugin = {"pretty"}
 )
+public class TestRunner {
+
+}
 
 /*
  * @Suite
@@ -30,6 +30,6 @@ import io.cucumber.junit.CucumberOptions;
  * "pretty, html:target/cucumber-report.html, json:target/cucumber.json")
  */
 
-public class TestRunner {
+//public class TestRunner {
 
-}
+//}
